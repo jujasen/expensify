@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/app.js',
+    entry: './src/playground/redux101.js',
     output: {
         path: path.join(__dirname, 'public'),
         filename: 'bundle.js'
@@ -25,6 +25,7 @@ module.exports = {
     },
     devtool: 'eval-cheap-module-source-map',
     devServer: {
-        contentBase: path.join(__dirname, 'public')
+        contentBase: path.join(__dirname, 'public'),
+        historyApiFallback: true
     }
 };
