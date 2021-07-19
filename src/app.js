@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from 'react-redux';
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 import AppRouter from './routers/AppRouter';
@@ -21,11 +22,18 @@ store.subscribe(() => {
 
 //CALL EXPENSE ACTIONS
 const expense1 = store.dispatch( addExpense( { description: 'water bill', amount: 200} ) );
-const expense2 = store.dispatch( addExpense( { description: 'makeup', amount: 600} ) );
-const expense3 = store.dispatch( addExpense( { description: 'gas bill', amount: 350} ) );
-
-//CALL FILTER ACTIONS
-const textFilter = store.dispatch(setTextFilter("water"));
+const expense2 = store.dispatch( addExpense( { description: 'gas bill', amount: 0} ) );
+const expense3 = store.dispatch( addExpense( { description: 'rent', amount: 109500} ) );
 
 
-ReactDOM.render(<AppRouter/>, document.getElementById("app"));
+// //CALL FILTER ACTIONS
+// const textFilter = store.dispatch(setTextFilter("water"));
+
+
+const jsx = (
+  <Provider store={store}>
+    <AppRouter/>
+  </Provider>
+)
+
+ReactDOM.render(jsx, document.getElementById("app"));
